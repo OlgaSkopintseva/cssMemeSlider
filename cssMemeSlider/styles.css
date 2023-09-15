@@ -8,64 +8,65 @@
   align-items: center;
 }
 
-.container {
-  padding: 0;
-  margin: 0;
-}
-
-.slider_wrapper {
-  max-width: 37.5rem;
-  margin: 0;
-}
-
 .slider {
+  overflow: hidden;
   display: flex;
-  overflow-x: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  border-radius: 0.5rem;
-  max-width: 37.5rem;
+  max-width: 34rem;
+  flex-direction: column;
 }
 
-.slider_image {
-  object-fit: cover;
-  width: 100%;
+.slider__input {
+  display: none;
 }
 
-.slider_content {
+.slides {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 1rem 0 0 0;
-  padding: 0;
-  max-width: 37.5rem;
+  transition: transform 0.5s ease;
 }
 
-.slider_inscriptions {
-  display: flex;
-  overflow-x: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  border-radius: 0.5rem;
+.slides__item {
+  flex: 0 0 100%;
 }
 
-.slider_text {
+.slides__item_image {
+  max-width: 100%;
+  height: auto;
+}
+
+.slider__label {
   color: #dfdfdf;
   font-family: Inter;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   padding: 0;
   margin: 0;
-  flex: 1 0 100%;
   scroll-snap-align: start;
+  flex: 1 0 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: fadeIn 1s 0.3s forwards;
 }
 
-.slider_navigation {
+.slider__content {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.8rem 0 0 0;
 }
 
-.slider_button_container {
+.slider__inscriptions {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider__controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slider__container_control {
   width: 2rem;
   height: 2rem;
   display: flex;
@@ -75,17 +76,18 @@
   transition: ease 5ms;
 }
 
-.slider_button {
-  width: 100%;
-  height: 100%;
+.slider__label_control {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 70%;
+  height: 70%;
 }
 
-.slider_button_inner {
-  width: 50%;
-  height: 50%;
+.slider__inner_control {
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
   background-color: #4e5266;
   display: flex;
@@ -94,67 +96,115 @@
   cursor: pointer;
 }
 
-.slider_button:hover .slider_button_inner,
-.slider_button:checked .slider_button_inner {
+.slider__label_control:hover .slider__inner_control {
   background-color: #a3a3a3;
 }
 
+#slide1:checked ~ .slides {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ .slides {
+  transform: translateX(-100%);
+}
+
+#slide3:checked ~ .slides {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ .slides {
+  transform: translateX(-300%);
+}
+
+#slide1:checked ~ .slider__content .slider__label:nth-of-type(1) {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+#slide2:checked ~ .slider__content .slider__label:nth-of-type(2) {
+  transform: translateX(-100%);
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+#slide3:checked ~ .slider__content .slider__label:nth-of-type(3) {
+  transform: translateX(-200%);
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+#slide4:checked ~ .slider__content .slider__label:nth-of-type(4) {
+  transform: translateX(-300%);
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
 @media screen and (max-width: 750px) {
-  .slider {
+  .slides {
     max-width: 30rem;
   }
 
-  .slider_content {
+  .slider__content {
     max-width: 30rem;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .slider {
+  .slides {
     max-width: 23rem;
   }
 
-  .slider_navigation {
+  .slider__controls {
     order: 1;
   }
 
-  .slider_inscriptions {
+  .slider__inscriptions {
     max-width: 23rem;
     order: 2;
     margin: 0.313rem 0 0 0;
   }
 
-  .slider_content {
+  .slider__content {
     flex-direction: column;
     max-width: 23rem;
   }
 
-  .slider_text {
-    font-size: 1.25rem;
+  .slider__label {
+    font-size: 1.1rem;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .slider_wrapper {
+  .slides {
+    max-width: 18rem;
+  }
+
+  .slides__item {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .slider {
+  .slides__item_image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .slider__content {
     max-width: 18rem;
   }
 
-  .slider_inscriptions {
+  .slider__inscriptions {
     max-width: 18rem;
   }
 
-  .slider_text {
-    font-size: 0.9rem;
+  .slider__label {
+    font-size: 0.8rem;
   }
 
-  .slider_button_container {
-    width: 1.3rem;
-    height: 1.3rem;
+  .slider__controls_label {
+    width: 0.4rem;
+    height: 0.4rem;
   }
 }
