@@ -7,62 +7,69 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="page">
-    <div class="container">
-      <div class="slider_wrapper">
-        <div class="slider">
+    <div class="slider">
+      <input type="radio" id="slide1" name="slider" class="slider__input" />
+      <input type="radio" id="slide2" name="slider" class="slider__input" />
+      <input type="radio" id="slide3" name="slider" class="slider__input" />
+      <input type="radio" id="slide4" name="slider" class="slider__input" />
+
+      <div class="slides">
+        <div class="slides__item">
           <img
             src="./img/image-1.png"
-            alt="Crying boy"
-            class="slider_image"
-            id="image-1"
+            alt="Slide 1"
+            class="slides__item_image"
           />
+        </div>
+        <div class="slides__item">
           <img
             src="./img/image-2.png"
-            alt="Toy monkey"
-            class="slider_image"
-            id="image-2"
+            alt="Slide 2"
+            class="slides__item_image"
           />
+        </div>
+        <div class="slides__item">
           <img
             src="./img/image-3.png"
-            alt="Joe Tribbiani"
-            class="slider_image"
-            id="image-3"
+            alt="Slide 3"
+            class="slides__item_image"
           />
+        </div>
+        <div class="slides__item">
           <img
             src="./img/image-4.png"
-            alt="Bird with arms"
-            class="slider_image"
-            id="image-4"
+            alt="Slide 4"
+            class="slides__item_image"
           />
         </div>
       </div>
-      <div class="slider_content">
-        <div class="slider_inscriptions">
-          <p class="slider_text">Я тоже хочу шоколадку...</p>
-          <p class="slider_text">Эх...Тяжело</p>
-          <p class="slider_text">OMG!</p>
-          <p class="slider_text">Bombastic Side Eye</p>
+      <div class="slider__content">
+        <div class="slider__inscriptions">
+          <p class="slider__label" for="slide1">Я тоже хочу шоколадку...</p>
+          <p class="slider__label" for="slide2">Эх...Тяжело</p>
+          <p class="slider__label" for="slide3">OMG!!!</p>
+          <p class="slider__label" for="slide4">Bombastic Side Eye</p>
         </div>
-        <div class="slider_navigation">
-          <div class="slider_button_container">
-            <a href="#image-1" class="slider_button" id="button-1">
-              <div class="slider_button_inner"></div>
-            </a>
+        <div class="slider__controls">
+          <div class="slider__container_control">
+            <label class="slider__label_control" for="slide1">
+              <div class="slider__inner_control"></div>
+            </label>
           </div>
-          <div class="slider_button_container">
-            <a href="#image-2" class="slider_button" id="button-2">
-              <div class="slider_button_inner"></div>
-            </a>
+          <div class="slider__container_control">
+            <label class="slider__label_control" for="slide2">
+              <div class="slider__inner_control"></div>
+            </label>
           </div>
-          <div class="slider_button_container">
-            <a href="#image-3" class="slider_button" id="button-3">
-              <div class="slider_button_inner"></div>
-            </a>
+          <div class="slider__container_control">
+            <label class="slider__label_control" for="slide3">
+              <div class="slider__inner_control"></div>
+            </label>
           </div>
-          <div class="slider_button_container">
-            <a href="#image-4" class="slider_button" id="button-4">
-              <div class="slider_button_inner"></div>
-            </a>
+          <div class="slider__container_control">
+            <label class="slider__label_control" for="slide4">
+              <div class="slider__inner_control"></div>
+            </label>
           </div>
         </div>
       </div>
